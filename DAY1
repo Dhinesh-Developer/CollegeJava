@@ -1,0 +1,166 @@
+package com.dk;
+
+import java.util.Scanner;
+
+/**
+ * Developer class represents a developer with a title, name, and price.
+ * It includes constructors, getter, and setter methods for encapsulation.
+ */
+class Developer {
+    private String title;
+    private String name;
+    private float price;
+
+    /**
+     * Parameterized constructor to initialize Developer details.
+     *
+     * @param title The title of the developer.
+     * @param name  The name of the developer.
+     * @param price The price associated with the developer's services.
+     */
+    Developer(String title, String name, float price) {
+        this.title = title;
+        this.name = name;
+        this.price = price;
+    }
+
+    /**
+     * Default constructor.
+     */
+    public Developer() {
+    }
+
+    /**
+     * Gets the title of the developer.
+     *
+     * @return title of the developer.
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Sets the title of the developer.
+     *
+     * @param title The title to set.
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * Gets the name of the developer.
+     *
+     * @return name of the developer.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the name of the developer.
+     *
+     * @param name The name to set.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Gets the price associated with the developer.
+     *
+     * @return price of the developer.
+     */
+    public float getPrice() {
+        return price;
+    }
+
+    /**
+     * Sets the price of the developer.
+     *
+     * @param price The price to set.
+     */
+    public void setPrice(float price) {
+        this.price = price;
+    }
+}
+
+/**
+ * Validate class extends Developer and includes methods to get user input
+ * and display the details.
+ */
+class Validate extends Developer {
+    Developer d = new Developer();
+
+    /**
+     * Prompts the user for input and sets the Developer details.
+     */
+    public void getUserInput() {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.println("Enter the title:");
+        d.setTitle(in.nextLine());
+
+        System.out.println("Enter the name:");
+        d.setName(in.nextLine());
+
+        System.out.println("Enter the price:");
+        while (!in.hasNextFloat()) {
+            System.out.println("Invalid input. Please enter a valid price:");
+            in.next(); // Consume the invalid input
+        }
+        d.setPrice(in.nextFloat());
+
+        in.close();
+    }
+
+    /**
+     * Displays the entered developer details.
+     */
+    public void displayDetails() {
+        System.out.println("\n----- Developer Details -----");
+        System.out.println("Title : " + d.getTitle());
+        System.out.println("Name  : " + d.getName());
+        System.out.println("Price : " + d.getPrice());
+    }
+}
+
+/**
+ * Main class DAY1 - Entry point of the program.
+ */
+public class DAY1 {
+    public static void main(String[] args) {
+        // Create an instance of Validate class
+        Validate v = new Validate();
+
+        // Get user input
+        v.getUserInput();
+
+        // Display the details entered by the user
+        v.displayDetails();
+    }
+}
+
+
+# Developer Details Java Program
+
+This is a simple Java program that collects developer details and displays them.
+
+## 
+![Developer Details Output]
+
+Enter the title
+Java Programming
+Enter the name
+James Gosling
+Enter the price
+2000.00
+Title : Java Programming
+Name : James Gosling
+Price : 2000.0
+
+
+## 🚀 Features
+- Uses **OOP principles** (Encapsulation, Inheritance)
+- Accepts user input using **Scanner**
+- Displays developer details in a formatted output
